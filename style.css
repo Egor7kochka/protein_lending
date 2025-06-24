@@ -3,8 +3,10 @@
   --second-family: "Inter", sans-serif;
   --third-family: "Gilroy", sans-serif;
 }
-
 body::before {
+  position: absolute;
+  z-index: -1;
+  top: 0;
   content: '';
 width: 100%;
 height: 100%;
@@ -62,4 +64,25 @@ align-items: center;
 justify-content: flex-start;
 flex-direction: row;
 gap: 55px;
+}
+.product-images {
+  width: 100%;
+}
+.container {
+  max-width: 988px;
+  width: 100%;
+  margin: 0 auto;
+  background: url(/images/image-back.png) no-repeat;
+}
+.images-container {
+position: relative;
+}
+.korobka {
+  margin-top: -52px;
+  margin-left: 289px;
+}
+.nuts {
+ position: absolute;
+ top: 130px;
+  right: 130px;
 }
