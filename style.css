@@ -87,7 +87,16 @@ main {
   margin: 0 auto;
   background: url(/images/image-back.png) no-repeat;
 position: relative;
+   transition: background 1s ease, transform 1s ease;
 }
+ .bg-animate {
+    animation: bgPulse 1s ease;
+  }
+
+  @keyframes bgPulse {
+    0% { background-size: 95%; }
+    100% { background-size: 100%; }
+  }
 .product-images {
   margin-top: 98px;
   position: relative;
@@ -131,53 +140,78 @@ color: #0047a3;
 .product-text h1 span {
   color: #000;
 }
-.switch {
-  display: flex;
-align-items: center;
-justify-content: flex-start;
-flex-direction: row;
-gap: 0px;
-border: 5px solid rgba(0, 71, 163, 0.2);
-border-radius: 60px;
-width: 390px;
-margin:  0 auto;
-}
-.switch-left {
-  display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: row;
-gap: 10px;
-font-family: var(--font-family);
-font-weight: 400;
-font-size: 18px;
-line-height: 140%;
-color: #000;
-background: #fff;
-border-radius: 60px 0 0 60px;
-width: 50%;
-height: 63px;
-}
-.switch-right {
-  display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: row;
-gap: 10px;
-font-family: var(--font-family);
-font-weight: 400;
-font-size: 18px;
-line-height: 140%;
-color: #fff;
-background: #0047a3;
-border-radius:  0  60px 60px 0;
-width: 50%;
-height: 63px;
-}
+ .switch {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 0px;
+   border: 5px solid rgba(0, 19, 44, 0.253);
+    border-radius: 60px;
+    width: 390px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    background: #fff;
+  }
+
+  .switch-left, .switch-right {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 140%;
+    width: 50%;
+    height: 63px;
+    position: relative;
+    z-index: 2;
+    transition: color 0.4s ease;
+  }
+
+  .switch-left {
+    color: #000;
+    border-radius: 60px 0 0 60px;
+  }
+
+  .switch-right {
+    color: #000;
+    border-radius: 0 60px 60px 0;
+  }
+
+  .switch-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #0047a3;
+    border-radius: 60px;
+    z-index: 1;
+    transition: all 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+    box-shadow: 0 4px 15px rgba(0, 71, 163, 0.3);
+  }
+
+  .switch-left.active {
+    color: #fff;
+  }
+
+  .switch-right.active {
+    color: #fff;
+  }
+
+  .switch-bg.right {
+    left: 50%;
+    background: #0047a3;
+    box-shadow: 0 4px 15px rgba(0, 71, 163, 0.3);
+  }
 .img-margin {
     margin-top: -52px;
     margin-left: 289px;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
   
   /* Новые стили для плавного перехода */
@@ -193,11 +227,19 @@ height: 63px;
     margin: 0;
     overflow: hidden;
   }
+  .preview-product .hidden {
+     opacity: 0;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    margin: 0;
+    overflow: hidden;
+  }
   .korobka, .plant {
      transition: transform 1s ease, opacity 1s ease;
   }
 .product-text {
-  z-index: 1;
+  z-index: 5;
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -247,12 +289,11 @@ color: #000;
     filter: blur(98px);
     background: #fff;
     content: '';
-    top: 0;
+    top: -50px;
     left: 0;
     width: 100%;
-    height: 100%; 
+    height: calc(100% + 50px); 
 }
-
 
 .structure {
   display: flex;
@@ -282,6 +323,9 @@ height: 787px;
   background: url(/images/woman.png) no-repeat;
   width: 414px;
 height: 808px;
+}
+.images-container-wrapper {
+  width: 100%;
 }
 .preview-product {
   margin: 27px auto 0px 187px;
@@ -482,10 +526,12 @@ color: #000;
 }
 
 .contacts-container {
+  max-width: 1366px;
   display: flex;
   gap: 20px;
 }
 .data-container {
+  width: 50%;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -521,7 +567,12 @@ color: #000;
 text-decoration: none;
 }
 .map {
+  width: 100%;
   border: 4px solid #fff;
+}
+
+iframe {
+  width: 100%;
 }
 /* Скрывает кнопку пробок */
 [class*="traffic"] { 
