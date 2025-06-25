@@ -13,22 +13,22 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="_reset.css">
 </head>
-<body>
+<body class="index-body">
 
 
  <header>
   <div class="container header-container">
     <div class="nav-left">
-      <a href="">О продукте</a>
-    <a href="">Продукция</a>
+      <a href="#about-product">О продукте</a>
+    <a href="#structure">Продукция</a>
     </div>
     
 
 <a href=""><img src="/images/logo.png" alt=""></a>
 
 <div class="nav-right">
-  <a href="">Где купить</a>
-    <a href="">Контакты</a>
+  <a href="#where">Где купить</a>
+    <a href="#contacts">Контакты</a>
 </div>
     
   </div>
@@ -46,9 +46,10 @@ Plant Protein
 </div>
 
 
-<div class="product-images">
+<div id="about-product" class="product-images">
   <div class="container images-container">
-<img src="/images/korobka.png" alt="" class="korobka">
+<img src="/images/korobka.png" alt="" class="korobka img-margin">
+<img src="/images/plant.png" alt="" class="plant img-margin">
 <img src="/images/nuts.png" alt="" class="nuts">
 <div class="product-text">
   <h1>
@@ -65,7 +66,7 @@ Plant Protein
 </div>
 
 
-<div class="structure">
+<div id="structure" class="structure">
   <div class="container structure-container">
     <div class="preview-product">
       <img src="/images/not-rotate-korobka.png" alt="">
@@ -103,11 +104,7 @@ Plant Protein
   </div>
 </div>
 
-
-
-
-
-<div class="where-product">
+<div id="where" class="where-product">
 <div class="where-product-container container">
 <h2>Где купить <br>
 нашу продукцию</h2>
@@ -121,7 +118,7 @@ Plant Protein
 
 
 
-<div class="contacts">
+<div id="contacts" class="contacts">
   <div class="contacts-container container">
 
     <div class="data-container">
@@ -155,9 +152,13 @@ Plant Protein
 <footer>
 <div class="footer-container container">
 <div class="footer-text">
-  <p>© 2025 ZINUS</p>
-  <p>Политика обработки персональных данных</p>
+  <a href="error.html">© 2025 ZINUS</a>
+  <a href="policy.html">Политика обработки персональных данных</a>
 </div>
+<a href="https://is-art.ru/" class="is-art">
+  <p>Разработан</p>
+  <img src="/images/is-art-logo.svg" alt="">
+</a>
 </div>
 </footer>
 
