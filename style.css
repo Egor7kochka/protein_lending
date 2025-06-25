@@ -480,8 +480,9 @@ color: #fff;
   align-items: flex-start;
   justify-content: space-between;
   padding: 100px 136px;
-  background: url(/images/true-w-u.svg) no-repeat center / cover;
+  background: url(/images/true-w-u.svg) no-repeat center / contain;
 }
+
 .where-product-container h2 {
   font-family: var(--font-family);
 font-weight: 500;
@@ -490,12 +491,22 @@ line-height: 140%;
 text-transform: uppercase;
 color: #000;
 }
+
 .platforms {
 display: flex;
 align-items: center;
 justify-content: flex-start;
 flex-direction: row;
 gap: 20px;
+}
+@media (max-width: 768px) {
+    .platforms {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+gap: 20px;
+}
 }
 .one-platform {
 display: flex;
