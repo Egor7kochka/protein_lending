@@ -37,7 +37,7 @@ gap: 68px;
 .nav-left a {
   width: 130px;
   height: 85px;
-  background: url(/images/nav-left.svg) no-repeat;
+  background: url(/images/nav-left.svg) no-repeat no-repeat center / cover;
   font-family: var(--font-family);
 font-weight: 400;
 font-size: 16px;
@@ -51,7 +51,7 @@ text-decoration: none;
 .nav-right a {
   width: 130px;
   height: 85px;
-  background: url(/images/nav-right.svg) no-repeat ;
+  background: url(/images/nav-right.svg) no-repeat center / cover;
   font-family: var(--font-family);
 font-weight: 400;
 font-size: 16px;
@@ -69,6 +69,7 @@ justify-content: flex-start;
 flex-direction: row;
 gap: 55px;
 }
+
 main {
   margin-top: 40px;
 }
@@ -84,10 +85,19 @@ main {
   position: relative;
     max-width: 988px;
   width: 100%;
-  margin: 0 auto;
-  background: url(/images/image-back.png) no-repeat;
+  margin: 46px auto 0px auto;
 position: relative;
    transition: background 1s ease, transform 1s ease;
+}
+.images-container::after {
+content: '';
+position: absolute;
+width: 100%;
+height: 687px;
+left: 0;
+bottom: 0;
+background: url(/images/image-back.png) no-repeat bottom / contain;
+z-index: -1;
 }
  .bg-animate {
     animation: bgPulse 1s ease;
@@ -98,7 +108,6 @@ position: relative;
     100% { background-size: 100%; }
   }
 .product-images {
-  margin-top: 98px;
   position: relative;
 }
 .images-container::before {
@@ -108,9 +117,11 @@ position: relative;
  left: 0;
  right: 0;
  margin: auto;
-  width: 896px;
-  height: 264px;
-  background: url(/images/ellipse.svg);
+  max-width: 896px;
+  max-height: 264px;
+  width: 100%;
+  height: 100%;
+  background: url(/images/ellipse.svg) no-repeat center / contain;
 z-index: 1;
 }
 .header-container {
@@ -124,9 +135,10 @@ z-index: 1;
 
 
 .nuts {
- position: absolute;
- top: 130px;
-  right: 130px;
+    position: absolute;
+    width: 25%;
+    top: 27%;
+    right: 13%;
 }
 .product-text h1 {
   font-family: var(--font-family);
@@ -148,7 +160,7 @@ color: #0047a3;
     gap: 0px;
    border: 5px solid rgba(0, 19, 44, 0.253);
     border-radius: 60px;
-    width: 390px;
+    max-width: 400px;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
@@ -166,7 +178,7 @@ color: #0047a3;
     font-size: 18px;
     line-height: 140%;
     width: 50%;
-    height: 63px;
+    padding: 19px 38px;
     position: relative;
     z-index: 2;
     transition: color 0.4s ease;
@@ -209,9 +221,14 @@ color: #0047a3;
     box-shadow: 0 4px 15px rgba(0, 71, 163, 0.3);
   }
 .img-margin {
-    margin-top: -52px;
-    margin-left: 289px;
     transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  .img-margin {
+    margin-left: 30%;
+    width: 48%;
+    z-index: 0;
+    margin-bottom: 1%;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
   }
   
   /* Новые стили для плавного перехода */
@@ -238,29 +255,38 @@ color: #0047a3;
   .korobka, .plant {
      transition: transform 1s ease, opacity 1s ease;
   }
+
+.korobka {
+  position: relative;
+}
+.korobka-wrapper {
+  position: relative;
+}
 .product-text {
   z-index: 5;
   position: absolute;
   width: 100%;
   bottom: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.product-main-text span {
+.product-text h3 {
   font-family: var(--font-family);
 font-weight: 500;
 font-size: 18px;
 line-height: 140%;
 color: #000;
-text-align: right;
+text-align: center;
 }
+
 .product-main-text {
   
   position: relative;
   z-index: 2;
   width: 100%;
-  min-height: 473px;
+  margin: 150px auto 155px auto;
 
 }
 .product-main-text p {
@@ -284,16 +310,7 @@ color: #000;
 }
 
 
-.product-main-text::after {
-  position: absolute;
-    filter: blur(98px);
-    background: #fff;
-    content: '';
-    top: -50px;
-    left: 0;
-    width: 100%;
-    height: calc(100% + 50px); 
-}
+
 
 .structure {
   display: flex;
@@ -326,6 +343,16 @@ height: 808px;
 }
 .images-container-wrapper {
   width: 100%;
+}
+.images-container-wrapper::after {
+  position: absolute;
+    filter: blur(98px);
+    background: #fff;
+    content: '';
+    bottom: -150px;
+    left: 0;
+    width: 100%;
+    height: 200px; 
 }
 .preview-product {
   margin: 27px auto 0px 187px;
@@ -473,6 +500,7 @@ color: #fff;
   width: 100%;
 }
 .where-product-container {
+  position: relative;
   margin: 100px auto;
   min-height: 470px;
   display: flex;
@@ -480,9 +508,32 @@ color: #fff;
   align-items: flex-start;
   justify-content: space-between;
   padding: 100px 136px;
-  background: url(/images/true-w-u.svg) no-repeat center / contain;
 }
-
+.where-product-container::before {
+content: '';
+width: 100%;
+height: 470px;
+position: absolute;
+left: 0;
+top: 0;
+z-index: -1;
+  background: url(/images/true-w-u.svg) no-repeat center / cover;
+}
+@media (max-width: 768px) {
+  .where-product-container::before {
+  transform: rotate(90deg);
+}
+}
+@media (max-width: 768px) {
+  .container {
+  padding: 10px;
+}
+}
+@media (max-width: 1400px) {
+  .container {
+  padding: 0px 20px 0px 20px;
+}
+}
 .where-product-container h2 {
   font-family: var(--font-family);
 font-weight: 500;
@@ -517,8 +568,7 @@ gap: 10px;
 border-radius: 20px;
 padding: 28px 44px;
 background: #fff;
-min-height: 140px;
-min-width: 344px;
+aspect-ratio: 344 / 140;
 }
 .contacts {
   padding: 100px 0px 100px 0px;
@@ -701,4 +751,90 @@ width: 100%;
 }
 html {
   scroll-behavior: smooth;
+}
+
+
+@media (min-width: 450px) and  (max-width: 600px) {
+  .product-text h1 {
+  font-size: 18px;
+}
+.product-text h3 {
+  font-size: 14px;
+}
+}
+
+
+@media (min-width: 600px) and (max-width: 800px)  {
+  .product-text h1 {
+  font-size: 22px;
+}
+.product-text h3 {
+  font-size: 16px;
+}
+}
+
+
+
+@media (min-width:460px) and (max-width: 768px) {
+  .logo-header {
+    max-width: 80px;
+  }
+  .nav-right a,
+  .nav-left a {
+    width: 85px;
+  height: 55px;
+  font-size: 12px;
+  }
+  .nav-left,
+  .nav-right {
+    gap: 20px;
+  }
+   .where-product-container::before {
+  transform: rotate(90deg);
+}
+  .container {
+  padding: 10px;
+}
+}
+
+@media (max-width: 1400px) {
+  .container {
+  padding: 0px 20px 0px 20px;
+}
+}
+
+@media (max-width: 460px) {
+    .product-text h1 {
+  font-size: 14px;
+}
+.product-text h3 {
+  font-size: 12px;
+}
+  .nav-right a,
+  .nav-left a {
+    width: 57px;
+  height: 37px;
+  font-size: 8px;
+  }
+  .nav-left,
+  .nav-right {
+    gap: 10px;
+  }
+  .logo-header {
+    max-width: 50px;
+  }
+  .switch {
+    width: 200px;
+  }
+  .switch-right, 
+  .switch-left {
+     font-size: 8px;
+      padding: 10px 19px;
+  }
+}
+
+@media (min-width:790px) and (max-width: 850px) {
+  .logo-header {
+    max-width: 80px;
+  }
 }
