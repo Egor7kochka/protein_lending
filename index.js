@@ -4,9 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const korobka = document.querySelectorAll('.korobka');
   const plant = document.querySelectorAll('.plant');
   const imagesContainer = document.querySelector('.images-container');
-
+  const mText = document.querySelectorAll('.milk-protein-text')
+  const pText = document.querySelectorAll('.plant-protein-text')
   // Инициализация
   plant.forEach(el => el.classList.add('hidden'));
+  pText.forEach(el => el.classList.add('hidden'));
   imagesContainer.classList.add('bg-animate');
 
   // Клик на Milk Protein
@@ -17,6 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     plant.forEach(el => el.classList.add('hidden'));
     korobka.forEach(el => el.classList.remove('hidden'));
+       pText.forEach(el => el.classList.add('hidden'));
+    mText.forEach(el => el.classList.remove('hidden'));
   });
   
   // Клик на Plant Protein
@@ -27,6 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     korobka.forEach(el => el.classList.add('hidden'));
     plant.forEach(el => el.classList.remove('hidden'));
+        mText.forEach(el => el.classList.add('hidden'));
+    pText.forEach(el => el.classList.remove('hidden'));
   });
 });
 
@@ -37,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const switchBg = document.querySelector('.switch-bg');
   const imagesContainer = document.querySelector('.images-container-wrapper');
   const structure = document.querySelector('.structure');
+  const nuts = document.querySelectorAll('.nuts');
 
   // Создаем элементы-клоны для псевдоэлементов
   const manClone = document.createElement('div');
@@ -44,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   manClone.className = 'pseudo-man';
   womanClone.className = 'pseudo-woman';
-  
+  nuts.className = 'nuts';
   // Стили для плавных переходов
   const pseudoStyles = `
     .images-container-wrapper {
@@ -59,6 +66,14 @@ document.addEventListener('DOMContentLoaded', function() {
       z-index: -1;
       opacity: 0;
       transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+           -webkit-mask-image: linear-gradient(to bottom, 
+    rgba(0,176,240,1) 70%,  /* Голубой цвет (подставьте ваш HEX/RGB) */
+    rgba(0,176,240,0) 100%   /* Плавное исчезновение */
+  );
+  mask-image: linear-gradient(to bottom, 
+    rgba(0,176,240,1) 70%, 
+    rgba(0,176,240,0) 100%
+  );
     }
     
     .pseudo-man {
@@ -67,14 +82,18 @@ document.addEventListener('DOMContentLoaded', function() {
       width: 679px;
       height: 787px;
       transform: translateX(-20px);
+      
     }
-    
+    .nuts {
+       transition: transform 1s ease, opacity 1s ease;
+      }
     .pseudo-woman {
       right: 0;
       background: url(/images/woman.png) no-repeat;
       width: 414px;
       height: 808px;
       transform: translateX(20px);
+      
     }
     
     .pseudo-man.active, .pseudo-woman.active {
