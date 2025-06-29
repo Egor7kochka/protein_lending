@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     .pseudo-man {
       left: 0;
-      background: url(/images/man.png) no-repeat;
+      background: url(images/man.png) no-repeat;
       width: 679px;
       height: 787px;
       transform: translateX(-20px);
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     .pseudo-woman {
       right: 0;
-      background: url(/images/woman.png) no-repeat;
+      background: url(images/woman.png) no-repeat;
       width: 414px;
       height: 808px;
       transform: translateX(20px);
